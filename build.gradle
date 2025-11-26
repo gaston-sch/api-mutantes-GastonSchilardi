@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.10"
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, includes: [
+                    // Estas son EXACTAMENTE las 5 filas del reporte de tu amigo
+                    // pero adaptadas a tu código (com.example):
+
+                    '**/service/**',         // 1. Lógica de Negocio
+                    '**/controller/**',      // 2. Controladores (API)
+                    '**/config/**',          // 3. Configuración (Swagger)
+                    '**/entity/**',          // 4. Base de Datos
+
+                    // 5. La clase Main (DetectorMutantesApplication)
+                    '**/mutantes/*Application*'
+            ])
+        }))
+    }
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
