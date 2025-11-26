@@ -16,9 +16,9 @@ El sistema está optimizado para manejar altos volúmenes de tráfico mediante:
 
 ## 🔗 Enlaces del Proyecto
 
-* ☁️ **API en Producción (Render):** [https://mutantes-api-borgnabruno.onrender.com](https://mutantes-api-borgnabruno.onrender.com)
-* 📄 **Documentación Swagger:** [https://mutantes-api-borgnabruno.onrender.com/swagger-ui.html](https://mutantes-api-borgnabruno.onrender.com/swagger-ui.html)
-* 🐙 **Repositorio GitHub:** [https://github.com/brunoborgna/mutantes-api](https://github.com/brunoborgna/mutantes-api)
+* ☁️ **API en Producción (Render):**  [Stats](https://api-mutantes-gastonschilardi.onrender.com/stats) [Consola h2](https://api-mutantes-gastonschilardi.onrender.com/h2-console)
+* 📄 **Documentación Swagger:** [Swagger](https://api-mutantes-gastonschilardi.onrender.com/swagger-ui.html)
+* 🐙 **Repositorio GitHub:** [Git](https://github.com/gaston-sch/api-mutantes-GastonSchilardi.git)
 
 ---
 
